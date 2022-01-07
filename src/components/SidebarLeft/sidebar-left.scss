@@ -1,0 +1,44 @@
+@use '../../sass/' as *;
+
+.sidebar-left {
+  background: $second-bg;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: $sidebar-left-width;
+  overflow-y: auto;
+  box-shadow: $box-shadow;
+  padding: 30px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__list {
+    &--item {
+      border-radius: $border-radius;
+      overflow: hidden;
+      &:hover {
+        color: $primary-color;
+      }
+      a {
+        @include flex(center, flex-start);
+        padding: 12px;
+        font-weight: 600;
+        span {
+          margin-right: 12px;
+          font-size: 1.8rem;
+
+          img {
+            width: 18px;
+          }
+        }
+      }
+      & .active {
+        background-image: $linear-gradient;
+        color: $white-color;
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+@use '../../../../sass/' as *;
+
+.best-song {
+  &__view-more {
+    @include flex(center, center);
+  }
+}

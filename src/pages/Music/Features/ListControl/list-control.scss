@@ -1,0 +1,19 @@
+@use '../../../../sass/' as *;
+
+.list-control {
+  @include flex(center, space-between);
+  gap: 1rem;
+  margin-bottom: 1rem;
+
+  &__item {
+    i {
+      font-size: 3rem;
+      padding: 4px;
+      cursor: pointer;
+
+      &.active {
+        color: $primary-color;
+      }
+    }
+  }
+}

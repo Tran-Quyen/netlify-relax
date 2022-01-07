@@ -1,0 +1,10 @@
+@use '../../../../sass/' as *;
+
+.favourite-song {
+  &__notify {
+    color: $gray-color;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+}

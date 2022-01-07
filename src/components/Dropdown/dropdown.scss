@@ -1,0 +1,58 @@
+@use '../../sass/' as *;
+
+.dropdown {
+  position: relative;
+  z-index: 99;
+
+  &-toggle {
+    display: block;
+    padding: 4px;
+    cursor: pointer;
+
+    & > i {
+      transition: transform 0.2s ease-in-out;
+    }
+
+    &:hover > i {
+      color: $primary-color;
+      cursor: pointer;
+    }
+  }
+
+  &__content {
+    background: $second-bg;
+    box-shadow: $box-shadow-bold;
+    border-radius: $border-radius;
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 50%;
+    padding: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: all 0.2s cubic-bezier(0.35, 0.18, 0.68, 1);
+
+    & > * ~ * {
+      margin-top: 12px;
+    }
+
+    &.hide {
+      display: none;
+    }
+  }
+
+  &.active &__content {
+    visibility: visible;
+    opacity: 1;
+    transform: scaleY(1);
+  }
+
+  &.active &-toggle > i {
+    color: $primary-color;
+  }
+
+  &.active &-toggle > i[class='bx bxs-cog'] {
+    transform: rotate(-30deg);
+  }
+}

@@ -1,0 +1,7 @@
+@use '../../sass/' as *;
+
+.top-menu {
+  background: $second-bg;
+  box-shadow: $box-shadow;
+  height: $top-menu__height;
+}

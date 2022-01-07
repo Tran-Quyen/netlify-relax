@@ -1,0 +1,31 @@
+@use '../../../../sass/' as *;
+
+.progress {
+  @include flex(center, flex-start);
+  gap: 2rem;
+
+  // /* Mouse-over effects */
+  input:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+  }
+
+  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+  input::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 12px; /* Set a specific slider handle width */
+    height: 12px; /* Slider handle height */
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: $primary-color;
+  }
+
+  input {
+    border-radius: 8px;
+    height: 7px;
+    width: 100%;
+    outline: none;
+    transition: background 450ms ease-in;
+    -webkit-appearance: none;
+  }
+}

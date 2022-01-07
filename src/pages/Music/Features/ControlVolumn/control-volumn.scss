@@ -1,0 +1,26 @@
+@use '../../../../sass/' as *;
+.control-volumn {
+  @include flex(center, center);
+  gap: 1rem;
+
+  &__icon {
+    display: block;
+    cursor: pointer;
+    padding: 4px;
+    i {
+      font-size: 1.6rem;
+    }
+  }
+
+  input {
+    cursor: pointer;
+  }
+
+  &__current {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: $primary-color;
+    display: block;
+    width: 40px;
+  }
+}

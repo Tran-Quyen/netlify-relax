@@ -1,0 +1,21 @@
+@use '../../sass/' as *;
+
+.title {
+  margin: 2.4rem 0;
+  position: relative;
+  display: inline-block;
+  &::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    left: 0;
+    bottom: -12px;
+    height: 2px;
+    background-color: $gray-color;
+  }
+  &-content {
+    font-size: 1.6rem;
+    color: $txt-second-color;
+    font-weight: 600;
+  }
+}

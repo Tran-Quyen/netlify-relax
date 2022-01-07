@@ -1,0 +1,38 @@
+@use '../../../../sass/' as *;
+
+.music-control {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  background: $linear-gradient;
+  padding: 8px;
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__info {
+    @include flex(center, flex-start);
+    gap: 10px;
+  }
+
+  &__img {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  &__name {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  &__author {
+    font-size: 1.2rem;
+    color: $txt-second-color;
+  }
+}

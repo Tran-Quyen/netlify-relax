@@ -1,0 +1,42 @@
+@use '../../../../sass/' as *;
+
+.music__list {
+  margin-bottom: 8.2rem;
+  padding: 1rem;
+  overflow-y: auto;
+  max-height: 38rem;
+  position: relative;
+
+  &--down {
+    text-align: center;
+
+    &__content {
+      font-size: 1.6rem;
+    }
+    &__icon {
+      display: inline-block;
+      padding: 4px;
+      cursor: pointer;
+      color: $white-color;
+      font-weight: 600;
+    }
+
+    i {
+      font-size: 2rem;
+      color: $white-color;
+      font-weight: 600;
+    }
+  }
+
+  &::-webkit-scrollbar {
+    // width: 4px;
+    // background-color: $second-primary-color;
+    // border-radius: 10px;
+    display: none;
+  }
+
+  // &::-webkit-scrollbar-thumb {
+  //   background-color: $primary-color;
+  //   border-radius: 10px;
+  // }
+}

@@ -1,0 +1,102 @@
+@use '../../../../sass/' as *;
+
+.top-menu__head {
+  height: $top-menu-head__height;
+  @include flex(center, space-between);
+
+  i {
+    font-size: 2.5rem;
+  }
+
+  &--search {
+    @include flex(center, unset);
+    background: $white-color;
+    position: relative;
+    max-width: 380px;
+    flex-grow: 1;
+    box-shadow: $box-shadow;
+    overflow: hidden;
+
+    & .btn-search {
+      position: absolute;
+      right: 0;
+
+      &::after {
+        content: '';
+        position: absolute;
+        transform: translateY(-50%);
+        top: 50%;
+        left: 0;
+        width: 1px;
+        height: 22px;
+        background: rgba($gray-color, 0.2);
+      }
+    }
+
+    input {
+      width: 100%;
+      padding: 16px 60px 16px 12px;
+    }
+  }
+
+  &--right {
+    @include flex(center, center);
+
+    &__item {
+      @include flex(center, center);
+    }
+
+    & > * ~ * {
+      margin-left: 2.4rem;
+    }
+
+    &__user--item {
+      &__toggle {
+        @include flex(center, unset);
+        padding: 8px 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          color: $primary-color;
+        }
+
+        & span {
+          font-weight: 600;
+          text-transform: capitalize;
+        }
+
+        & > i {
+          font-size: 1.4rem;
+        }
+
+        & > * ~ * {
+          margin-left: 1.2rem;
+        }
+      }
+    }
+  }
+}
+
+.sub-dropdown {
+  padding-left: 48px;
+  transform: scaleY(0);
+  height: 0;
+  transition: all 0.1s ease;
+  overflow: hidden;
+
+  &.active {
+    height: auto;
+    opacity: 1;
+    transform: scaleY(1);
+  }
+
+  &__item {
+    padding: 8px;
+    cursor: pointer;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}

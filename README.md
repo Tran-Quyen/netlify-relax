@@ -2,3 +2,4 @@
   - React-router-dom v6
   - redux, redux toolkit
   - sass
+  - swiper

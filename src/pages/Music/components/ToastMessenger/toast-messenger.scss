@@ -1,0 +1,61 @@
+@use '../../../../sass/' as *;
+
+.toast-message {
+  @include flex(center, center);
+  position: fixed;
+  top: calc($top-menu__height + 30px);
+  right: 30px;
+  gap: 1rem;
+  border-radius: $border-radius;
+  color: $white-color;
+  padding: 8px 12px;
+  background: $primary-color;
+  transform: translateX(calc(100% + 30px));
+  transition: transform 0.3s cubic-bezier(0, 0.79, 0, 1.36);
+
+  &__icon {
+    font-size: 2rem;
+
+    &--status {
+      &--success {
+        color: rgb(11, 255, 11);
+        font-weight: 600;
+        opacity: 0;
+        transition: opacity 0.1s cubic-bezier(0, 0.79, 0, 1.36);
+        transition-delay: 0.4s;
+      }
+    }
+
+    &--remove {
+      cursor: pointer;
+
+      &:hover {
+        color: $txt-second-color;
+      }
+
+      &:active {
+        opacity: 0;
+      }
+    }
+  }
+  &.active {
+    transform: translateX(0);
+  }
+
+  &.active &__icon {
+    &--status {
+      &--success {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__content {
+    &--song {
+      color: $second-primary-color;
+      font-weight: 600;
+      font-size: 1.6rem;
+      text-transform: capitalize;
+    }
+  }
+}

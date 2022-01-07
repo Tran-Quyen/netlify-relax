@@ -1,0 +1,21 @@
+@use '../../sass/' as *;
+
+.btn-navigate {
+  display: inline-block;
+  padding: 8px 24px;
+  background: $primary-color;
+
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: $white-color;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &__hover {
+    &:hover {
+      background: $second-primary-color;
+      color: $black-color;
+    }
+  }
+}

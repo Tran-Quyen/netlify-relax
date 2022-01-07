@@ -1,0 +1,15 @@
+@use '../../sass/' as *;
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+.logo {
+  @include flex(center, center);
+  padding: 0 0 24px;
+  &-content {
+    font-family: 'Kaushan Script', cursive;
+    color: $primary-color;
+    font-size: 4rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-shadow: $text-shadow;
+    letter-spacing: 3px;
+  }
+}

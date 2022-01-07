@@ -1,0 +1,36 @@
+$primary-color: #4f60ff;
+$second-primary-color: rgb(221, 170, 255);
+$linear-gradient: linear-gradient(
+  to right,
+  $primary-color,
+  $second-primary-color
+);
+
+$main-bg: #fff;
+$second-bg: #fafafa;
+// $main-bg: rgb(255, 123, 0);
+// $second-bg: #000000;
+
+$txt-main-color: #1a222d;
+$txt-second-color: #b1b3b7;
+
+$black-color: #000;
+$white-color: #fff;
+$red-color: red;
+$gray-color: gray;
+$heart-color: rgb(255, 0, 106);
+
+$mobile-width: 600px;
+$tablet-width: 1024px;
+
+$top-menu-head__height: 70px;
+$top-menu__height: 140px;
+
+$box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.05);
+$box-shadow-bold: 2px 2px 2px 2px rgba($gray-color, 0.3);
+$text-shadow: 2px 2px 1px $second-primary-color;
+$border-radius: 12px;
+
+$numbers: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
+
+$sidebar-left-width: 240px;
