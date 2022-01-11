@@ -34,8 +34,14 @@ const MusicList = ({ data }) => {
   };
 
   useEffect(() => {
+    let isMounted = true;
+
     setMusicList(data.slice(0, perLoad));
-    setIndex(1);
+    if (isMounted) setIndex(1);
+
+    return () => {
+      isMounted = false;
+    };
   }, [data, perLoad]);
 
   return (

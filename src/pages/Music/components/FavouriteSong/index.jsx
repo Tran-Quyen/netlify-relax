@@ -6,18 +6,22 @@ import Section from '../../../../components/Section';
 import Title from '../../../../components/Title';
 import './favourite-song.scss';
 import CardMusic from '../MusicCard';
+import musicData from '../../../../assets/fake-data/music-data';
 
 const FavouriteSong = (props) => {
   const navigate = useNavigate();
   const currentSongIndex = useSelector((state) => state.music.currentSongIndex);
   const [favouriteList] = useState(() => {
-    const musicList = JSON.parse(localStorage.getItem('MUSIC_LIST'));
+    const musicList =
+      JSON.parse(localStorage.getItem('MUSIC_LIST')) || musicData;
     const favouriteList = musicList.filter((music) => music.yourFavouriteSongs);
     return favouriteList;
   });
+
   const handleClickToBtn = () => {
     navigate('/music');
   };
+
   return (
     <div className="favourite-song">
       <div className="container">

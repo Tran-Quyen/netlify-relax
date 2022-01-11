@@ -5,7 +5,9 @@ const Button = (props) => {
   return (
     <div
       onClick={props.onClick}
-      className={`btn-navigate btn-navigate__${props.type ? props.type : ''}`}
+      className={`btn-navigate ${
+        props.type ? 'btn-navigate__' + props.type : ''
+      }`}
     >
       {props.children}
     </div>

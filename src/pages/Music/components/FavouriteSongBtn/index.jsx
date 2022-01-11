@@ -20,11 +20,9 @@ const FavouriteSongBtn = ({ musicItem }) => {
 
   const handleClickHeart = (e) => {
     e.stopPropagation();
-
     // heart status
     setHeart(!heart);
     const currentHeart = !heart;
-
     // set notify in redux
     dispatch(
       setNotify({
@@ -35,7 +33,6 @@ const FavouriteSongBtn = ({ musicItem }) => {
           : `${musicItem.info.name} - is removed to yourFavouriteSongs`,
       })
     );
-
     // set to local song is clicked
     const musicList = JSON.parse(localStorage.getItem('MUSIC_LIST')) || [];
     const newMusicList = [...musicList];
@@ -43,6 +40,7 @@ const FavouriteSongBtn = ({ musicItem }) => {
     newMusicList[index] = { ...musicItem, yourFavouriteSongs: currentHeart };
     localStorage.setItem('MUSIC_LIST', JSON.stringify(newMusicList));
   };
+
   return (
     <div className="music-card__add">
       <span onClick={handleClickHeart}>

@@ -5,12 +5,12 @@ import './top-menu.scss';
 
 const musicMenu = [
   { display_name: 'Best song', path: '/best-song' },
-  { display_name: 'Trend best views', path: '/trend' },
+  { display_name: 'Trend best views', path: '/trends-best-views' },
   { display_name: 'Favourite Song', path: '/favourite-song' },
 ];
 
 const TopMenu = (props) => {
-  const [contentData, setContentData] = useState(musicMenu);
+  const [contentData] = useState(musicMenu);
   return (
     <div className="top-menu">
       <div className="container">

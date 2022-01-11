@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import musicData from '../../../../assets/fake-data/music-data';
 import Grid from '../../../../components/Grid';
 import { setCurrentSongIndex } from '../../../../redux/music/musicSlice';
 import commasNumber from '../../../../ultis/commasNumber';
@@ -16,16 +17,17 @@ const CardMusic = (props) => {
     return props.index === currentSongIndex;
   };
 
-  const musicList = useSelector((state) => state.music.musicList);
+  // Because the Music component is not mounted yet, the music list has not been dispatched
+  const musicList = JSON.parse(localStorage.getItem('MUSIC_LIST')) || musicData;
   const isPlaying =
     useSelector((state) => state.music.isPlaying) && matchesCurrentSong();
 
   const handleClickToMusicCard = () => {
-    navigate('/music');
     const newCurrentSongIndex = musicList.findIndex(
       (music) => music.id === musicItem.id
     );
     dispatch(setCurrentSongIndex(newCurrentSongIndex));
+    navigate('/music');
   };
 
   return (

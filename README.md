@@ -3,3 +3,4 @@
   - redux, redux toolkit
   - sass
   - swiper
+  - animate css

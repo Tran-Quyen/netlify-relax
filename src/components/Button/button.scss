@@ -7,7 +7,7 @@
 
   font-size: 1.6rem;
   font-weight: 600;
-  color: $white-color;
+  color: inherit;
 
   cursor: pointer;
   transition: all 0.3s ease;
@@ -16,6 +16,18 @@
     &:hover {
       background: $second-primary-color;
       color: $black-color;
+    }
+  }
+
+  &__hover--outline {
+    background: transparent;
+    border: 2px solid $primary-color;
+    border-radius: $border-radius;
+    animation: bounceIn 3s ease-in-out infinite;
+    &:hover {
+      background: $second-primary-color;
+      color: $black-color;
+      animation: none;
     }
   }
 }

@@ -4,10 +4,6 @@ import { PropTypes } from 'prop-types';
 const Helmet = (props) => {
   useEffect(() => {
     document.title = 'Relax - ' + props.title;
-
-    return () => {
-      document.title = 'Relax';
-    };
   }, [props.title]);
 
   return <div>{props.children}</div>;

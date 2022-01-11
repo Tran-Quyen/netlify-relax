@@ -1,0 +1,19 @@
+@use '../../../../sass/' as *;
+.video-box {
+  display: inline-block;
+  position: relative;
+}
+.video {
+  width: 30rem;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+
+  &:hover &-controls {
+    opacity: 1;
+  }
+
+  & video {
+    border-radius: 20px;
+  }
+}

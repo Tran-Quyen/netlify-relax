@@ -21,10 +21,12 @@ const ControlVolumn = ({ audioRef }) => {
   };
 
   useEffect(() => {
+    if (!audioRef.current) return;
     audioRef.current.setMute(mute);
   }, [mute, audioRef]);
 
   useEffect(() => {
+    if (!audioRef.current) return;
     audioRef.current.setVolume(volume / 100);
     // eslint-disable-next-line
   }, []);

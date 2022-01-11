@@ -1,0 +1,50 @@
+@use '../../../../sass/' as *;
+
+.go-to-top {
+  position: fixed;
+  bottom: 4rem;
+  right: 4rem;
+  transform: translateY(100px);
+  transition: transform 0.3s ease;
+
+  &.active {
+    transform: translateY(0);
+  }
+
+  & > span {
+    cursor: pointer;
+    display: inline-block;
+    height: 4rem;
+    width: 4rem;
+    @include flex(center, center);
+    border-radius: 50%;
+    overflow: hidden;
+    background: $primary-color;
+    transition: all 0.2s ease;
+    i {
+      font-size: 3rem;
+      color: $white-color;
+      animation: goto 3s ease-in infinite;
+    }
+
+    &:hover {
+      background: $second-primary-color;
+
+      i {
+        color: $black-color;
+      }
+    }
+  }
+}
+
+@keyframes goto {
+  0% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}

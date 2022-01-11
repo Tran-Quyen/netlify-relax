@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
-// eslint-disable-next-line
 
 ReactDOM.render(
   <React.StrictMode>

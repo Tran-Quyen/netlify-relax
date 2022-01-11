@@ -1,0 +1,12 @@
+@use '../../../../sass/' as *;
+
+.tiktok-list {
+  @include flex(flex-start, center);
+  flex-direction: column;
+  margin-left: 10%;
+  gap: 2rem 0;
+
+  & > .button {
+    margin: 3rem auto;
+  }
+}

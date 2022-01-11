@@ -6,9 +6,9 @@ import PodCast from '../pages/PodCast';
 import Music from '../pages/Music';
 import Contact from '../pages/Contact';
 import Album from '../pages/Album';
-import MusicTrend from '../pages/Music/components/MusicTrend';
 import BestSong from '../pages/Music/components/BestSong';
 import FavouriteSong from '../pages/Music/components/FavouriteSong';
+import TrendsBestViews from '../pages/TikTok/components/TrendsBestViews';
 
 const Routers = () => {
   return (
@@ -17,7 +17,7 @@ const Routers = () => {
       <Route path="/music" element={<Music />} />
       <Route path="/best-song" element={<BestSong />} />
       <Route path="/favourite-song" element={<FavouriteSong />} />
-      <Route path="/trend" element={<MusicTrend />} />
+      <Route path="/trends-best-views" element={<TrendsBestViews />} />
       <Route path="/tiktok" element={<TikTok />} />
       <Route path="/podcast" element={<PodCast />} />
       <Route path="/contact" element={<Contact />} />

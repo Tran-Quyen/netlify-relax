@@ -1,0 +1,53 @@
+@use '../../../../sass/' as *;
+
+.tiktok-card {
+  overflow: hidden;
+  padding: 2rem;
+  border-bottom: 1px solid rgba($gray-color, 0.2);
+  width: 100%;
+
+  &__info {
+    @include flex(flex-start, flex-start);
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  &__desc {
+    max-width: 30rem;
+    & > * ~ * {
+      margin-top: 1rem;
+    }
+  }
+
+  &__image {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  &__name {
+    @include flex(center, unset);
+    & > * ~ * {
+      margin-left: 0.5rem;
+      color: rgb(0, 203, 218);
+    }
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+
+  &__music {
+    @include flex(center, unset);
+    gap: 0.5rem;
+
+    &--name {
+      span {
+        font-weight: 600;
+      }
+    }
+  }
+
+  &__follow {
+    color: $black-color;
+  }
+}

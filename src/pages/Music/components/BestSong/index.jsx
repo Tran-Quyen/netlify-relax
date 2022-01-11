@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import musicData from '../../../../assets/fake-data/music-data';
 import Button from '../../../../components/Button';
 import Section from '../../../../components/Section';
 import Title from '../../../../components/Title';
@@ -12,7 +13,7 @@ const BestSong = () => {
 
   const [musicList] = useState(() => {
     const musicList = JSON.parse(localStorage.getItem('MUSIC_LIST'));
-    return musicList || [];
+    return musicList || musicData;
   });
   const [bestSongList] = useState(() => {
     const newList = [...musicList];

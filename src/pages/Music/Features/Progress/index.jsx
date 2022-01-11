@@ -11,6 +11,7 @@ const Progress = ({ audioRef }) => {
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [value, setValue] = useState(0);
+
   const handleOnChange = (e) => {
     audioRef.current.pause();
     // using debound when user seek
@@ -27,27 +28,36 @@ const Progress = ({ audioRef }) => {
   };
 
   useEffect(() => {
+    let isMounted = true;
     audioRef.current &&
       audioRef.current.onLoadedMetadata(() => {
-        setDuration(audioRef.current?.getDuration());
+        if (isMounted) setDuration(audioRef.current?.getDuration());
       });
     durationRef.current = duration;
+
+    return () => {
+      isMounted = false;
+    };
   }, [audioRef, duration]);
 
   useEffect(() => {
+    let isMounted = true;
     let isThrotting = false;
+
     audioRef.current.onTimeupdate(() => {
       if (isThrotting) return;
       isThrotting = true;
       timeoutThrotRef.current = setTimeout(() => {
         const currentTime = audioRef.current?.getCurrentTime();
-        setCurrentTime(currentTime);
-        setValue((currentTime * 100) / durationRef.current);
+        if (isMounted) setCurrentTime(currentTime);
+        if (isMounted) setValue((currentTime * 100) / durationRef.current);
         isThrotting = false;
       }, 1000);
     });
 
+    // clean up
     return () => {
+      isMounted = false;
       clearTimeout(timeoutThrotRef.current);
     };
   }, [audioRef]);
@@ -64,6 +74,7 @@ const Progress = ({ audioRef }) => {
       newValue +
       '%, white 100%)';
   }, [value]);
+
   return (
     <div className="progress">
       <span>{formatTime(currentTime)}</span>
