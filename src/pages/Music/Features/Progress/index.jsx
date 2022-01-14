@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './progress.scss';
 import formatTime from '../../../../ultis/formatTime';
-import sleepAsync from '../../../../ultis/sleepAsync';
 
 const Progress = ({ audioRef }) => {
   const inputRef = useRef(null);
@@ -13,17 +12,14 @@ const Progress = ({ audioRef }) => {
   const [value, setValue] = useState(0);
 
   const handleOnChange = (e) => {
-    audioRef.current.pause();
-    // using debound when user seek
+    // using debound when user seek;
     const percent = e.target.value;
     setValue(percent);
     if (timeoutDeboundRef.current) clearTimeout(timeoutDeboundRef.current);
     timeoutDeboundRef.current = setTimeout(() => {
-      const timeSeek = (percent * duration) / 100;
+      const timeSeek = Math.round((percent * duration) / 100);
       audioRef.current.setCurrentTime(timeSeek);
-      sleepAsync(50, () => {
-        audioRef.current.play();
-      });
+      audioRef.current.play();
     }, 300);
   };
 
@@ -48,7 +44,7 @@ const Progress = ({ audioRef }) => {
       if (isThrotting) return;
       isThrotting = true;
       timeoutThrotRef.current = setTimeout(() => {
-        const currentTime = audioRef.current?.getCurrentTime();
+        const currentTime = Math.round(audioRef.current?.getCurrentTime());
         if (isMounted) setCurrentTime(currentTime);
         if (isMounted) setValue((currentTime * 100) / durationRef.current);
         isThrotting = false;
@@ -79,8 +75,8 @@ const Progress = ({ audioRef }) => {
     <div className="progress">
       <span>{formatTime(currentTime)}</span>
       <input
-        ref={inputRef}
         onChange={handleOnChange}
+        ref={inputRef}
         type="range"
         value={value}
         step={0.5}

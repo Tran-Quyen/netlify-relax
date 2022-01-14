@@ -4,6 +4,10 @@
   margin: 2.4rem 0;
   position: relative;
   display: inline-block;
+
+  @include mobile {
+    margin: 1.6rem 0;
+  }
   &::after {
     content: '';
     position: absolute;
@@ -17,5 +21,9 @@
     font-size: 1.6rem;
     color: $txt-second-color;
     font-weight: 600;
+
+    @include mobile {
+      font-size: 1.4rem;
+    }
   }
 }

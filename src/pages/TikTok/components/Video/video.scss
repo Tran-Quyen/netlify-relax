@@ -9,6 +9,10 @@
   position: relative;
   z-index: 1;
 
+  @include tablet {
+    width: 90%;
+  }
+
   &:hover &-controls {
     opacity: 1;
   }

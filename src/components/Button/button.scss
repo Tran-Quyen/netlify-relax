@@ -12,6 +12,11 @@
   cursor: pointer;
   transition: all 0.3s ease;
 
+  @include mobile {
+    padding: 8px 16px;
+    font-size: 1.4rem;
+  }
+
   &__hover {
     &:hover {
       background: $second-primary-color;

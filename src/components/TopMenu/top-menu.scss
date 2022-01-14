@@ -4,4 +4,19 @@
   background: $second-bg;
   box-shadow: $box-shadow;
   height: $top-menu__height;
+
+  @include tablet {
+    height: $top-menu__height--mobile;
+  }
+}
+
+.menu {
+  display: none;
+  i {
+    font-size: 3rem;
+    cursor: pointer;
+  }
+  @include tablet {
+    display: block;
+  }
 }

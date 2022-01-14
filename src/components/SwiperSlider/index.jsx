@@ -9,21 +9,32 @@ import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import singers from '../../assets/images/singers.png';
 import tiktok_logo from '../../assets/images/tiktok-logo.png';
-import podcast from '../../assets/images/podcast.png';
-
 import hoa_hanna from '../../assets/videos/hoahana.mp4';
 import hot_hot_girl from '../../assets/videos/hot hot girl.mp4';
-
+import girl from '../../assets/images/girl.jpg';
 import Button from '../Button';
-import Grid from '../Grid';
 // Import Swiper styles
 import './swiper-slider.scss';
+import { useNavigate } from 'react-router-dom';
 
 // install Swiper modules
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 function SwiperSlider() {
   const swiperRef = useRef(null);
+  const navigate = useNavigate();
+
+  const handleClickTikTokBtn = () => {
+    navigate('./tiktok');
+  };
+
+  const handleClickMusicBtn = () => {
+    navigate('./music');
+  };
+
+  const handleClickAlbumBtn = () => {
+    navigate('./album');
+  };
 
   useEffect(() => {
     swiperRef.current &&
@@ -54,85 +65,81 @@ function SwiperSlider() {
       >
         <SwiperSlide>
           <div className="swiper-slide__item">
-            <Grid gap={30} col={2}>
-              <div className="swiper-slide__item--content">
-                <div className="swiper-slide__item--title">
-                  <span className="swiper-slide__item--txt tiktok">
-                    summarizing the latest tik tok trend
-                  </span>
-                  <span className="swiper-slide__item--img">
-                    <img src={tiktok_logo} alt="" />
-                  </span>
-                </div>
-                <div className="swiper-slide__item--desc">
-                  This is the place to create challenges, funny stories,exciting
-                  dances that will help you have a fresher day !!!
-                </div>
-                <Button type="hover--outline">Tik Tok Trends</Button>
+            <div className="swiper-slide__item--content">
+              <div className="swiper-slide__item--title">
+                <span className="swiper-slide__item--txt tiktok">
+                  summarizing the latest tik tok trend
+                </span>
+                <span className="swiper-slide__item--img">
+                  <img src={tiktok_logo} alt="" />
+                </span>
               </div>
-              <div className="swiper-slide__item--video">
-                <video
-                  src={hot_hot_girl}
-                  width="40%"
-                  muted="muted"
-                  autoPlay
-                  loop
-                  className="swiper-slide__item--video1"
-                />
-                <video
-                  src={hoa_hanna}
-                  width="40%"
-                  muted="muted"
-                  autoPlay
-                  loop
-                  className="swiper-slide__item--video2"
-                />
+              <div className="swiper-slide__item--desc">
+                This is the place to create challenges, funny stories,exciting
+                dances that will help you have a fresher day !!!
               </div>
-            </Grid>
+              <Button onClick={handleClickTikTokBtn} type="hover--outline">
+                Tik Tok Trends
+              </Button>
+            </div>
+            <div className="swiper-slide__item--video">
+              <video
+                src={hot_hot_girl}
+                muted="muted"
+                autoPlay
+                loop
+                className="swiper-slide__item--video1"
+              />
+              <video
+                src={hoa_hanna}
+                muted="muted"
+                autoPlay
+                loop
+                className="swiper-slide__item--video2"
+              />
+            </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="swiper-slide__item">
-            <Grid gap={30} col={2}>
-              <div className="swiper-slide__item--content">
-                <div className="swiper-slide__item--title">
-                  <span className="swiper-slide__item--txt musics">
-                    Music helps us relax, let's listen to exciting music right
-                    now
-                  </span>
-                </div>
-                <div className="swiper-slide__item--desc">
-                  Relax is a place where we can search and enjoy the hottest and
-                  trending music on many platforms and genres
-                </div>
-                <Button type="hover--outline">Music Trends</Button>
+            <div className="swiper-slide__item--content">
+              <div className="swiper-slide__item--title">
+                <span className="swiper-slide__item--txt musics">
+                  Music helps us relax, let's listen to exciting music right now
+                </span>
               </div>
-              <div className="swiper-slide__item--image">
-                <img src={singers} alt="" />
+              <div className="swiper-slide__item--desc">
+                Relax is a place where we can search and enjoy the hottest and
+                trending music on many platforms and genres
               </div>
-            </Grid>
+              <Button onClick={handleClickMusicBtn} type="hover--outline">
+                Music Trends
+              </Button>
+            </div>
+            <div className="swiper-slide__item--image">
+              <img src={singers} alt="" />
+            </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="swiper-slide__item">
-            <Grid gap={30} col={2}>
-              <div className="swiper-slide__item--content">
-                <div className="swiper-slide__item--title">
-                  <span className="swiper-slide__item--txt podcast">
-                    How is your day going? If you are happy or sad, share it
-                    with PodCast !
-                  </span>
-                </div>
-                <div className="swiper-slide__item--desc">
-                  if you're sad - let the podcast make you happy, if you're
-                  happy - share it with everyone
-                </div>
-                <Button type="hover--outline">Podcast</Button>
+            <div className="swiper-slide__item--content">
+              <div className="swiper-slide__item--title">
+                <span className="swiper-slide__item--txt album">
+                  Photos album - collection of interesting topics in life
+                </span>
               </div>
-              <div className="swiper-slide__item--image">
-                <img src={podcast} alt="" />
+              <div className="swiper-slide__item--desc">
+                if you're sad - let the albums photos make you happy, if you're
+                happy - share it with everyone
               </div>
-            </Grid>
+              <Button onClick={handleClickAlbumBtn} type="hover--outline">
+                Albums Photos
+              </Button>
+            </div>
+            <div className="swiper-slide__item--image">
+              <img src={girl} alt="" />
+            </div>
           </div>
         </SwiperSlide>
       </Swiper>

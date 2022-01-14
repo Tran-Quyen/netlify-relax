@@ -4,6 +4,9 @@
   position: absolute;
   right: -7rem;
   top: 50%;
+  @include tablet {
+    right: -1rem;
+  }
 
   &--item {
     @include flex(center, center);
@@ -13,6 +16,12 @@
     width: 5rem;
     border-radius: 50%;
     background: rgba($black-color, 0.05);
+
+    @include mobile {
+      height: 3rem;
+      width: 3rem;
+    }
+
     &:hover {
       background: rgba($black-color, 0.09);
     }
@@ -20,6 +29,9 @@
     i {
       font-size: 2.5rem;
       transition: all 0.5s ease;
+      @include mobile {
+        font-size: 1.4rem;
+      }
       &.active {
         color: $heart-color;
         animation: scales 0.7s ease;
@@ -31,6 +43,10 @@
       bottom: -20px;
       font-size: 1.2rem;
       font-weight: 600;
+
+      @include mobile {
+        font-size: 1rem;
+      }
     }
   }
 }

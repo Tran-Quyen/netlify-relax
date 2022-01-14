@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import musicData from '../../../../assets/fake-data/music-data';
@@ -37,7 +37,7 @@ const CardMusic = (props) => {
         isPlaying || matchesCurrentSong() ? 'active' : ''
       }`}
     >
-      <Grid gap={20} col={3}>
+      <Grid gap={20} col={3} mdCol={2} smCol={2}>
         <div className="music-card__item">
           {props.icon ? (
             <div
@@ -86,7 +86,7 @@ const CardMusic = (props) => {
           </div>
         </div>
 
-        <div className="music-card__item">
+        <div className="music-card__item music-card__item--album">
           <div className="music-card__album">{musicItem?.info?.album}</div>
         </div>
         <div className="music-card__item">

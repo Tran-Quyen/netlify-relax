@@ -16,6 +16,10 @@
     max-width: 30rem;
     & > * ~ * {
       margin-top: 1rem;
+
+      @include mobile {
+        margin-top: 0.5rem;
+      }
     }
   }
 
@@ -24,6 +28,11 @@
     height: 6rem;
     border-radius: 50%;
     overflow: hidden;
+
+    @include mobile {
+      width: 5rem;
+      height: 5rem;
+    }
   }
 
   &__name {
@@ -34,6 +43,10 @@
     }
     font-size: 1.6rem;
     font-weight: 600;
+
+    @include mobile {
+      font-size: 1.4rem;
+    }
   }
 
   &__music {
@@ -43,11 +56,19 @@
     &--name {
       span {
         font-weight: 600;
+
+        @include mobile {
+          font-size: 1.2rem;
+        }
       }
     }
   }
 
   &__follow {
     color: $black-color;
+
+    @include mobile {
+      display: none;
+    }
   }
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import pinterest from '../../assets/images/pinterest-logo.png';
 import tiktok from '../../assets/images/tiktok-logo.png';
@@ -24,12 +24,7 @@ const sidebarListApp = [
     icon: 'bx bxl-tiktok',
   },
   {
-    display_name: 'PodCast',
-    path: '/podcast',
-    icon: 'bx bx-podcast',
-  },
-  {
-    display_name: 'Album',
+    display_name: 'Photos Album',
     path: '/album',
     icon: 'bx bx-photo-album',
   },
@@ -67,8 +62,15 @@ const sidebarListPartner = [
 ];
 
 const SidebarLeft = () => {
+  const sidebarLeftRef = useRef(null);
+  const handleClickCloseBtnMenu = () => {
+    sidebarLeftRef.current.classList.remove('active');
+  };
   return (
-    <div className="sidebar-left">
+    <div ref={sidebarLeftRef} className="sidebar-left">
+      <span onClick={handleClickCloseBtnMenu} className="close-menu">
+        <i className="bx bx-x"></i>
+      </span>
       <Logo />
       <Title title="Your Application" />
       <div className="sidebar-left__list">

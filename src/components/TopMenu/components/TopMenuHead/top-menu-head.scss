@@ -4,6 +4,10 @@
   height: $top-menu-head__height;
   @include flex(center, space-between);
 
+  @include tablet {
+    gap: 0 2rem;
+  }
+
   i {
     font-size: 2.5rem;
   }
@@ -15,6 +19,7 @@
     max-width: 380px;
     flex-grow: 1;
     box-shadow: $box-shadow;
+    border-radius: $border-radius;
     overflow: hidden;
 
     & .btn-search {
@@ -35,7 +40,7 @@
 
     input {
       width: 100%;
-      padding: 16px 60px 16px 12px;
+      padding: 12px 60px 12px 16px;
     }
   }
 
@@ -48,6 +53,9 @@
 
     & > * ~ * {
       margin-left: 2.4rem;
+      @include mobile {
+        margin-left: 1rem;
+      }
     }
 
     &__user--item {

@@ -1,0 +1,69 @@
+@use '../../../../sass/' as *;
+
+.album-card {
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 32rem;
+  position: relative;
+  color: $white-color;
+  border-radius: $border-radius;
+
+  @include mobile {
+    height: 24rem;
+  }
+
+  &__name {
+    text-transform: capitalize;
+    span {
+      font-size: 2rem;
+      font-weight: 600;
+
+      @include mobile {
+        font-size: 1.6rem;
+      }
+    }
+  }
+
+  &__info {
+    background: rgba($black-color, 0.5);
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+
+    @include flex(center, center);
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__sub {
+    &--info {
+      @include flex(center, center);
+      gap: 3rem;
+      @include mobile {
+        gap: 2rem;
+      }
+    }
+    &--interactive {
+      font-size: 1.2rem;
+    }
+    &--item {
+      @include flex(center, flex-start);
+      flex-direction: column;
+      gap: 0.5rem 0;
+      i {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  &__btn {
+    display: none;
+  }
+
+  &:hover &__btn {
+    display: block;
+  }
+}

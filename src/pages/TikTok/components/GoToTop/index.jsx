@@ -6,7 +6,7 @@ const GoToTop = () => {
   const goToTopRef = useRef(null);
 
   const handleClickGoToTop = () => {
-    window.scrollTo(0, 250);
+    window.scrollTo(0, 0);
   };
 
   useEffect(() => {

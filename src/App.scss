@@ -59,6 +59,10 @@ input {
 .main {
   padding-left: $sidebar-left-width;
   height: 100vh;
+
+  @include tablet {
+    padding-left: 0;
+  }
 }
 
 .btn {

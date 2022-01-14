@@ -3,6 +3,10 @@
   @include flex(center, center);
   gap: 1rem;
 
+  @include mobile {
+    display: none;
+  }
+
   &__icon {
     display: block;
     cursor: pointer;

@@ -5,11 +5,15 @@
   height: calc(100vh - $top-menu__height);
   color: $white-color;
   overflow: hidden;
+
+  @include tablet {
+    height: calc(100vh - $top-menu__height--mobile);
+  }
 }
 
 .over-lay {
   position: absolute;
-  background-image: url('../../assets/images/background.jpg');
+  background-image: url('../../assets/images/primary-bg.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

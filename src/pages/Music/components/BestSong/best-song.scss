@@ -1,7 +1,12 @@
 @use '../../../../sass/' as *;
 
 .best-song {
+  padding-bottom: 2rem;
   &__view-more {
     @include flex(center, center);
+  }
+
+  &__list {
+    margin-top: 1rem;
   }
 }

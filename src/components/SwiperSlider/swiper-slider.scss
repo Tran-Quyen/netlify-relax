@@ -2,8 +2,11 @@
 
 .swiper {
   width: 100%;
-  height: calc(100vh - $top-menu__height - 11rem);
+  height: calc(100vh - $top-menu__height - 10rem);
   color: $white-color;
+  @include tablet {
+    height: max-content;
+  }
 
   &-container {
     padding: 2rem;
@@ -29,14 +32,24 @@
     &:active {
       opacity: 0;
     }
+
+    @include mobile {
+      display: none;
+    }
   }
 
   &-button-next {
     transform: translateX(30px);
+    @include mobile {
+      transform: translateX(10px);
+    }
   }
 
   &-button-prev {
     transform: translateX(-30px);
+    @include mobile {
+      transform: translateX(-10px);
+    }
   }
 
   &:hover &-button-next {
@@ -54,14 +67,35 @@
 
   &__item {
     width: 100%;
+    max-height: 100%;
     margin: 0 6rem;
     overflow: hidden;
+    @include flex(center, center);
+    gap: 2rem;
+
+    @include tablet {
+      margin: 0;
+    }
+
+    &--content {
+      @include mobile {
+        display: none;
+      }
+    }
+
+    & > * {
+      flex-basis: 50%;
+    }
 
     &--title {
       margin-bottom: 3rem;
       transform: translateY(-200px);
       transition: transform 0.3s ease;
       transition-delay: 0.2s;
+
+      @include tablet {
+        margin-bottom: 1rem;
+      }
     }
 
     &--txt {
@@ -71,6 +105,9 @@
       text-transform: capitalize;
       line-height: 1.5;
       font-weight: 600;
+      @include tablet {
+        font-size: 2rem;
+      }
 
       &.tiktok {
         text-shadow: 2px 1px 0 $red-color, -2px -1px 0 rgb(0, 174, 255);
@@ -80,7 +117,7 @@
         text-shadow: 2px 1px 0 rgb(255, 208, 0), -2px -1px 0 rgb(219, 219, 219);
       }
 
-      &.podcast {
+      &.album {
         text-shadow: 2px 1px 0 #e99123, -2px -1px 0 #e99123;
       }
     }
@@ -89,7 +126,7 @@
       transform: translateX(calc(100% + 30px));
       transition: transform 0.3s ease;
       transition-delay: 0.3s;
-      overflow: hidden;
+      border-radius: $border-radius;
     }
 
     &--img {
@@ -107,11 +144,24 @@
       transform: translateX(calc(-100% - 90px));
       transition: transform 0.3s ease-in-out;
       transition-delay: 0.5s;
+
+      @include tablet {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+      }
     }
 
     &--video {
       @include flex(center, center);
       gap: 2rem;
+
+      & video {
+        width: 45%;
+
+        @include mobile {
+          width: 100%;
+        }
+      }
     }
 
     &--video1 {
@@ -156,8 +206,22 @@
 }
 
 .swiper-slide img {
-  display: block;
-  width: 100%;
+  width: 82%;
   height: 100%;
   object-fit: cover;
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.swiper-wrapper {
+  align-items: center;
+}
+
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: 0;
 }

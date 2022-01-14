@@ -35,7 +35,7 @@ const MusicControl = () => {
   }, [dispatch]);
   return (
     <div className={`music-control ${currentSongIndex > -1 ? 'active' : ''}`}>
-      <Grid gap={10} col={3}>
+      <Grid gap={10} col={3} smCol={1}>
         <div className="music-control__info">
           <div className="music-control__img">
             <img src={currentSong?.info?.thumnail} alt="" />

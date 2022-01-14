@@ -6,6 +6,9 @@
   right: 4rem;
   transform: translateY(100px);
   transition: transform 0.3s ease;
+  @include mobile {
+    display: none;
+  }
 
   &.active {
     transform: translateY(0);
@@ -14,15 +17,15 @@
   & > span {
     cursor: pointer;
     display: inline-block;
-    height: 4rem;
-    width: 4rem;
+    height: 3rem;
+    width: 3rem;
     @include flex(center, center);
     border-radius: 50%;
     overflow: hidden;
     background: $primary-color;
     transition: all 0.2s ease;
     i {
-      font-size: 3rem;
+      font-size: 2rem;
       color: $white-color;
       animation: goto 3s ease-in infinite;
     }

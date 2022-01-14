@@ -27,9 +27,7 @@ const TikTokList = ({ tiktokList }) => {
       if (!tiktokListRef.current) return;
       if (
         window.scrollY + window.innerHeight >=
-        tiktokListRef.current.clientHeight +
-          tiktokListRef.current.offsetTop +
-          12
+        tiktokListRef.current.clientHeight + tiktokListRef.current.offsetTop
       ) {
         if (isMounted) setLoad(true);
       }
@@ -54,13 +52,18 @@ const TikTokList = ({ tiktokList }) => {
   }, [load, index, tiktokList, perLoad, infiniteList]);
 
   useEffect(() => {
-    document.addEventListener('visibilitychange', (event) => {
+    const handleVisibilityChange = () => {
       if (document.visibilityState === 'visible') {
         dispatch(setPause(false));
       } else {
         dispatch(setPause(true));
       }
-    });
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
   }, [dispatch]);
 
   return (

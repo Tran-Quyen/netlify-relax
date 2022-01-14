@@ -3,18 +3,27 @@
 .toast-message {
   @include flex(center, center);
   position: fixed;
-  top: calc($top-menu__height + 30px);
-  right: 30px;
+  top: calc($top-menu__height + 3rem);
+  right: 3rem;
   gap: 1rem;
   border-radius: $border-radius;
   color: $white-color;
   padding: 8px 12px;
   background: $primary-color;
-  transform: translateX(calc(100% + 30px));
+  transform: translateX(calc(100% + 3rem));
   transition: transform 0.3s cubic-bezier(0, 0.79, 0, 1.36);
 
+  @include mobile {
+    padding: 8px;
+    right: 1rem;
+    top: calc($top-menu__height--mobile + 1rem);
+  }
   &__icon {
     font-size: 2rem;
+
+    @include mobile {
+      font-size: 1.4rem;
+    }
 
     &--status {
       &--success {
@@ -51,11 +60,23 @@
   }
 
   &__content {
+    white-space: nowrap;
+    @include flex(center, center);
     &--song {
       color: $second-primary-color;
       font-weight: 600;
       font-size: 1.6rem;
       text-transform: capitalize;
+      margin-right: 1rem;
+
+      @include mobile {
+        font-size: 1.4rem;
+        display: inline-block;
+        width: 7rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
     }
   }
 }

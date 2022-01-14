@@ -3,6 +3,10 @@
 .top-menu__mid {
   height: calc($top-menu__height - $top-menu-head__height - 12px);
   @include flex(center, flex-start);
+  @include mobile {
+    height: calc($top-menu__height--mobile - $top-menu-head__height - 4rem);
+    @include flex(center, center);
+  }
 
   &--item {
     padding: 4px;
@@ -13,6 +17,11 @@
     color: $txt-second-color;
     text-transform: capitalize;
     position: relative;
+
+    @include mobile {
+      padding: 0;
+      font-size: 1.4rem;
+    }
 
     &::after {
       content: '';

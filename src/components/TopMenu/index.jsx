@@ -11,9 +11,18 @@ const musicMenu = [
 
 const TopMenu = (props) => {
   const [contentData] = useState(musicMenu);
+  const handleClickMenu = (event) => {
+    const sidebarElm = document.querySelector('.sidebar-left');
+    sidebarElm.classList.add('active');
+  };
   return (
     <div className="top-menu">
       <div className="container">
+        <div className="menu">
+          <div onClick={handleClickMenu} className="menu-icon">
+            <i className="bx bx-menu-alt-left"></i>
+          </div>
+        </div>
         <div className="top-menu__content">
           <TopMenuHead />
           <TopMenuMid topMenuMidData={contentData} />

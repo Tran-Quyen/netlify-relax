@@ -29,8 +29,8 @@ const FavouriteSongBtn = ({ musicItem }) => {
         ...notify,
         showStatus: true,
         mess: currentHeart
-          ? `${musicItem.info.name} - is added to yourFavouriteSongs`
-          : `${musicItem.info.name} - is removed to yourFavouriteSongs`,
+          ? `${musicItem.info.name} - is added to your Favourite Songs`
+          : `${musicItem.info.name} - is removed to your Favourite Songs`,
       })
     );
     // set to local song is clicked
