@@ -5,10 +5,12 @@
   @include flex(center, flex-start);
   @include mobile {
     height: calc($top-menu__height--mobile - $top-menu-head__height - 4rem);
-    @include flex(center, center);
+    overflow: hidden;
+    overflow-x: scroll;
   }
 
   &--item {
+    white-space: nowrap;
     padding: 4px;
     cursor: pointer;
     font-size: 1.6rem;
@@ -19,8 +21,11 @@
     position: relative;
 
     @include mobile {
-      padding: 0;
+      padding: 8px;
+      margin-right: 1rem;
       font-size: 1.4rem;
+      background-color: $primary-color;
+      color: $white-color;
     }
 
     &::after {
@@ -33,6 +38,10 @@
       right: 50%;
       transform: translateX(50%);
       transition: width 0.3s ease;
+
+      @include mobile {
+        display: none;
+      }
     }
 
     &:hover {
@@ -45,6 +54,10 @@
 
     &.active {
       color: $primary-color;
+
+      @include mobile {
+        color: $second-primary-color;
+      }
     }
 
     &.active::after {

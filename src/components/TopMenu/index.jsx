@@ -4,8 +4,8 @@ import TopMenuMid from './components/TopMenuMid';
 import './top-menu.scss';
 
 const musicMenu = [
-  { display_name: 'Best song', path: '/best-song' },
-  { display_name: 'Trend best views', path: '/trends-best-views' },
+  { display_name: 'Songs View More', path: '/best-song' },
+  { display_name: 'Best Trends', path: '/trends-best-views' },
   { display_name: 'Favourite Song', path: '/favourite-song' },
 ];
 

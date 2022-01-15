@@ -15,11 +15,15 @@
 
   & .close-menu {
     position: absolute;
-    display: inline-block;
+    display: none;
     padding: 4px;
     cursor: pointer;
     right: 1rem;
     top: 1rem;
+
+    @include tablet {
+      display: inline-block;
+    }
 
     &:active {
       opacity: 0.5;

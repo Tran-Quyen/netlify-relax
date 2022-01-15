@@ -76,7 +76,7 @@ const AlbumList = () => {
         0,
         albumListRef.current.offsetTop + albumListRef.current.offsetHeight
       );
-    }, 300);
+    }, 500);
   };
   return (
     <div ref={albumListRef} className="album-list">

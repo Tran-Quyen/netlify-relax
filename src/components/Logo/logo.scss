@@ -2,7 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
 .logo {
   @include flex(center, center);
-  padding: 0 0 24px;
+  padding: 0 0 2.4rem;
+
+  @include mobile {
+    padding: 0 0 1rem;
+  }
   &-content {
     font-family: 'Kaushan Script', cursive;
     color: $primary-color;
@@ -11,5 +15,9 @@
     cursor: pointer;
     text-shadow: $text-shadow;
     letter-spacing: 3px;
+
+    @include mobile {
+      font-size: 3rem;
+    }
   }
 }

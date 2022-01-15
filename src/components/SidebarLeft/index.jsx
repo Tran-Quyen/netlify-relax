@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import pinterest from '../../assets/images/pinterest-logo.png';
 import tiktok from '../../assets/images/tiktok-logo.png';
@@ -61,14 +61,28 @@ const sidebarListPartner = [
   },
 ];
 
+const clickOutSide = (btnToggle, dropdown) => {
+  window.addEventListener('click', (e) => {
+    if (
+      btnToggle.current.contains(e.target) ||
+      dropdown.current.contains(e.target)
+    ) {
+      dropdown.current.classList.remove('active');
+    }
+  });
+};
+
 const SidebarLeft = () => {
   const sidebarLeftRef = useRef(null);
-  const handleClickCloseBtnMenu = () => {
-    sidebarLeftRef.current.classList.remove('active');
-  };
+  const closeMenuRef = useRef(null);
+
+  useEffect(() => {
+    clickOutSide(closeMenuRef, sidebarLeftRef);
+  }, []);
+
   return (
     <div ref={sidebarLeftRef} className="sidebar-left">
-      <span onClick={handleClickCloseBtnMenu} className="close-menu">
+      <span ref={closeMenuRef} className="close-menu">
         <i className="bx bx-x"></i>
       </span>
       <Logo />
