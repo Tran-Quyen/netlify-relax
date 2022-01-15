@@ -8,6 +8,12 @@
     right: -1rem;
   }
 
+  @include mobile {
+    right: 5rem;
+    z-index: 1;
+    transform: translateY(-50%);
+  }
+
   &--item {
     @include flex(center, center);
     position: relative;
@@ -18,8 +24,9 @@
     background: rgba($black-color, 0.05);
 
     @include mobile {
-      height: 3rem;
-      width: 3rem;
+      color: $white-color;
+      height: 4rem;
+      width: 4rem;
     }
 
     &:hover {
@@ -30,7 +37,7 @@
       font-size: 2.5rem;
       transition: all 0.5s ease;
       @include mobile {
-        font-size: 1.4rem;
+        font-size: 2rem;
       }
       &.active {
         color: $heart-color;
@@ -43,10 +50,6 @@
       bottom: -20px;
       font-size: 1.2rem;
       font-weight: 600;
-
-      @include mobile {
-        font-size: 1rem;
-      }
     }
   }
 }

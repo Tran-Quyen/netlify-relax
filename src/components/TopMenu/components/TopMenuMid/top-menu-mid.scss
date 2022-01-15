@@ -39,13 +39,17 @@
       transform: translateX(50%);
       transition: width 0.3s ease;
 
-      @include mobile {
+      @include tablet {
         display: none;
       }
     }
 
     &:hover {
       color: $primary-color;
+
+      @include mobile {
+        color: $white-color;
+      }
     }
 
     &:hover::after {

@@ -9,9 +9,7 @@ const TikTokList = ({ tiktokList }) => {
   let perLoad = 5;
   const tiktokListRef = useRef(null);
   const dispatch = useDispatch();
-  const [infiniteList, setInfiniteList] = useState(() => {
-    return tiktokList.slice(0, perLoad) || [];
-  });
+  const [infiniteList, setInfiniteList] = useState([]);
   const [index, setIndex] = useState(1);
   const [load, setLoad] = useState(false);
 
@@ -19,6 +17,11 @@ const TikTokList = ({ tiktokList }) => {
     window.location =
       'https://www.tiktok.com/foryou?is_copy_url=1&is_from_webapp=v1';
   };
+
+  useEffect(() => {
+    setInfiniteList(tiktokList.slice(0, perLoad));
+    setIndex(1);
+  }, [perLoad, tiktokList]);
 
   useEffect(() => {
     let isMounted = true;

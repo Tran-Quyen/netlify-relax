@@ -6,10 +6,18 @@
   border-bottom: 1px solid rgba($gray-color, 0.2);
   width: 100%;
 
+  @include mobile {
+    padding: 1rem;
+  }
+
   &__info {
     @include flex(flex-start, flex-start);
     gap: 2rem;
     margin-bottom: 2rem;
+
+    @include mobile {
+      gap: 1rem;
+    }
   }
 
   &__desc {
@@ -28,10 +36,11 @@
     height: 6rem;
     border-radius: 50%;
     overflow: hidden;
+    border: 1px solid $primary-color;
 
     @include mobile {
-      width: 5rem;
-      height: 5rem;
+      width: 4rem;
+      height: 4rem;
     }
   }
 

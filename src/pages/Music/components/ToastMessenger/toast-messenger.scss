@@ -15,7 +15,7 @@
 
   @include mobile {
     padding: 8px;
-    right: 1rem;
+    right: 0;
     top: calc($top-menu__height--mobile + 1rem);
   }
   &__icon {

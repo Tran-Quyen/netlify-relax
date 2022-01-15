@@ -10,7 +10,6 @@ import { useSelector } from 'react-redux';
 
 const Video = (props, ref) => {
   const videoRef = useRef(null);
-  const debouceTimeout = useRef(null);
   const videoPlayingRef = useRef(null);
 
   useImperativeHandle(ref, () => ({
@@ -47,22 +46,18 @@ const Video = (props, ref) => {
     let windowHeight = window.innerHeight;
     let videoHeight = videoRef.current.clientHeight;
     let videoClientRect = videoRef.current.getBoundingClientRect().top;
-    // debounce
-    if (debouceTimeout.current) clearTimeout(debouceTimeout.current);
-    debouceTimeout.current = setTimeout(() => {
-      if (
-        videoClientRect <= windowHeight - videoHeight * 0.5 - 200 &&
-        videoClientRect - 150 >= 0 - videoHeight * 0.5
-      ) {
-        // save video is playing to videoPlayingRef
-        videoPlayingRef.current = videoRef.current;
-        videoRef.current.play();
-      } else {
-        videoRef.current.pause();
-        // remove prev video is playing to videoPlayingRef
-        videoPlayingRef.current = null;
-      }
-    }, 200);
+    if (
+      videoClientRect <= windowHeight - videoHeight * 0.5 - 200 &&
+      videoClientRect - 150 >= 0 - videoHeight * 0.5
+    ) {
+      // save video is playing to videoPlayingRef
+      videoPlayingRef.current = videoRef.current;
+      videoRef.current.play();
+    } else {
+      videoRef.current.pause();
+      // remove prev video is playing to videoPlayingRef
+      videoPlayingRef.current = null;
+    }
   }
 
   useEffect(() => {
@@ -83,6 +78,7 @@ const Video = (props, ref) => {
     <div className="video-box">
       <div className="video">
         <video
+          style={{ background: 'transparent' }}
           className="video-tiktok"
           muted={true}
           loop
