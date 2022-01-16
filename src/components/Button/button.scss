@@ -29,6 +29,10 @@
     border: 2px solid $primary-color;
     border-radius: $border-radius;
     animation: bounceIn 3s ease-in-out infinite;
+
+    @include mobile {
+      animation: none;
+    }
     &:hover {
       background: $second-primary-color;
       color: $black-color;

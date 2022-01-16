@@ -77,14 +77,15 @@
       margin: 0;
     }
 
-    &--content {
-      @include mobile {
-        display: none;
-      }
-    }
-
     & > * {
       flex-basis: 50%;
+    }
+
+    &--content {
+      @include mobile {
+        flex-basis: 100%;
+        flex-grow: 1;
+      }
     }
 
     &--title {
@@ -109,6 +110,10 @@
         font-size: 2rem;
       }
 
+      @include mobile {
+        font-size: 1.8rem;
+      }
+
       &.tiktok {
         text-shadow: 2px 1px 0 $red-color, -2px -1px 0 rgb(0, 174, 255);
       }
@@ -127,6 +132,10 @@
       transition: transform 0.3s ease;
       transition-delay: 0.3s;
       border-radius: $border-radius;
+
+      @include mobile {
+        display: none;
+      }
     }
 
     &--img {
@@ -155,12 +164,12 @@
       @include flex(center, center);
       gap: 2rem;
 
+      @include mobile {
+        display: none;
+      }
+
       & video {
         width: 45%;
-
-        @include mobile {
-          width: 100%;
-        }
       }
     }
 
@@ -224,4 +233,8 @@
 .swiper-horizontal > .swiper-pagination-bullets,
 .swiper-pagination-bullets.swiper-pagination-horizontal {
   bottom: 0;
+
+  @include mobile {
+    display: none;
+  }
 }

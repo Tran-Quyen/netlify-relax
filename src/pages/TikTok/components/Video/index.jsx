@@ -62,7 +62,7 @@ const Video = (props, ref) => {
         // remove prev video is playing to videoPlayingRef
         videoPlayingRef.current = null;
       }
-    }, 300);
+    }, 200);
   }
 
   useEffect(() => {
