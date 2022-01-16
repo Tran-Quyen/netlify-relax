@@ -22,6 +22,10 @@
         display: none;
       }
     }
+
+    @include mobile {
+      gap: 0.5rem;
+    }
   }
 
   &:hover {

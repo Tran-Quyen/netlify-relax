@@ -17,6 +17,6 @@
     cursor: pointer;
   }
   @include tablet {
-    display: block;
+    display: inline-block;
   }
 }

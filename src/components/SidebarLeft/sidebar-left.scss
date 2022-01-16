@@ -50,7 +50,11 @@
     &--item {
       border-radius: $border-radius;
       overflow: hidden;
-      margin-bottom: 1.5rem;
+      margin-top: 1.5rem;
+
+      @include mobile {
+        margin-top: 1rem;
+      }
 
       &:hover {
         color: $primary-color;

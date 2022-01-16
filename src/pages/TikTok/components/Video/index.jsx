@@ -11,6 +11,7 @@ import { useSelector } from 'react-redux';
 const Video = (props, ref) => {
   const videoRef = useRef(null);
   const videoPlayingRef = useRef(null);
+  const timeOutRef = useRef(null);
 
   useImperativeHandle(ref, () => ({
     play: () => {
@@ -43,21 +44,25 @@ const Video = (props, ref) => {
 
   function videoScroll() {
     if (!videoRef.current) return;
-    let windowHeight = window.innerHeight;
-    let videoHeight = videoRef.current.clientHeight;
-    let videoClientRect = videoRef.current.getBoundingClientRect().top;
-    if (
-      videoClientRect <= windowHeight - videoHeight * 0.5 - 200 &&
-      videoClientRect - 150 >= 0 - videoHeight * 0.5
-    ) {
-      // save video is playing to videoPlayingRef
-      videoPlayingRef.current = videoRef.current;
-      videoRef.current.play();
-    } else {
-      videoRef.current.pause();
-      // remove prev video is playing to videoPlayingRef
-      videoPlayingRef.current = null;
-    }
+    if (timeOutRef.current) clearTimeout(timeOutRef.current);
+
+    timeOutRef.current = setTimeout(() => {
+      let windowHeight = window.innerHeight;
+      let videoHeight = videoRef.current.clientHeight;
+      let videoClientRect = videoRef.current.getBoundingClientRect().top;
+      if (
+        videoClientRect <= windowHeight - videoHeight * 0.5 - 200 &&
+        videoClientRect - 150 >= 0 - videoHeight * 0.5
+      ) {
+        // save video is playing to videoPlayingRef
+        videoPlayingRef.current = videoRef.current;
+        videoRef.current.play();
+      } else {
+        videoRef.current.pause();
+        // remove prev video is playing to videoPlayingRef
+        videoPlayingRef.current = null;
+      }
+    }, 300);
   }
 
   useEffect(() => {

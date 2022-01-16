@@ -13,11 +13,14 @@
       border-radius: 50%;
 
       @include mobile {
-        font-size: 2rem;
+        font-size: 3rem;
       }
 
       &:hover {
         background: rgba($black-color, 0.05);
+        @include mobile {
+          background: transparent;
+        }
       }
 
       &:active {

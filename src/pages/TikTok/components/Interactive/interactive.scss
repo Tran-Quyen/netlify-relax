@@ -9,9 +9,9 @@
   }
 
   @include mobile {
-    right: 5rem;
+    right: 3rem;
     z-index: 1;
-    transform: translateY(-50%);
+    transform: translateY(-40%);
   }
 
   &--item {
@@ -25,19 +25,21 @@
 
     @include mobile {
       color: $white-color;
-      height: 4rem;
-      width: 4rem;
     }
 
     &:hover {
       background: rgba($black-color, 0.09);
+
+      @include mobile {
+        background: rgba($black-color, 0.05);
+      }
     }
     margin-bottom: 3rem;
     i {
       font-size: 2.5rem;
       transition: all 0.5s ease;
       @include mobile {
-        font-size: 2rem;
+        font-size: 2.5rem;
       }
       &.active {
         color: $heart-color;
